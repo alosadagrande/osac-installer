@@ -41,9 +41,9 @@ secretGenerator:
   options:
     disableNameSuffixHash: true
   literals:
-    - AAP_EE_IMAGE=ghcr.io/osac-project/osac-aap:sha-233a60c
+    - AAP_EE_IMAGE=ghcr.io/osac-project/osac-aap:sha-0bba6a0
     - AAP_PROJECT_GIT_URI="https://github.com/osac-project/osac-aap"
-    - AAP_PROJECT_GIT_BRANCH=233a60cdc1cfbbf5943dfff2c724167e91936cdb
+    - AAP_PROJECT_GIT_BRANCH=0bba6a00068d3bfed036af1fa1d90136e22b28dc
 
 - name: cluster-fulfillment-ig
   options:
@@ -360,7 +360,7 @@ patches:
                   role in tenant_idp_manager_roles
                 }
 
-                # Check if an account is a regular client (no admin or tenant management roles):
+                # Check if an account is a regular client (no admin, tenant management roles):
                 default is_client = false
                 is_client if {
                   not is_admin
@@ -415,8 +415,7 @@ patches:
                     "/osac.public.v1.ComputeInstances/Get",
                     "/osac.public.v1.ComputeInstances/List",
                     "/osac.public.v1.ComputeInstances/Update",
-                    "/osac.public.v1.Console/Connect",
-                    "/osac.public.v1.Console/GetAccess",
+                    "/osac.public.v1.ConsoleSessions/Create",
                     "/osac.public.v1.Events/Watch",
                     "/osac.public.v1.HostTypes/Get",
                     "/osac.public.v1.HostTypes/List",
